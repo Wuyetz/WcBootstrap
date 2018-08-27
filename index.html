@@ -3,32 +3,33 @@
     
     <head>
         <title>World Cup simulator</title>
+         
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset=UTF-8>
-        <meta name=viewport content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1">
-	<link rel="stylesheet" href="style.css"  type="text/css"/>
-	<script src="script.js" type="text/javascript"></script>
+<!--        <meta name=viewport content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1">  -->
     </head>
    
-    <body id="page_body">
-        <div id="buttonDiv">
-            <div class="groupButtonsA">
-                <button id="groupa">Group A</button>
-                <button id="groupb">Group B</button>
-                <button id="groupc">Group C</button>
-                <button id="groupd">Group D</button>
+    <body>
+        
+        <div class="row"> 
+            <div class="btn-group">
+                <button id="groupa" class="btn btn-primary">Group A</button>
+                <button id="groupb" class="btn btn-info">Group B</button>
+                <button id="groupc" class="btn btn-primary">Group C</button>
+                <button id="groupd" class="btn btn-info">Group D</button>
+                <button id="groupe" class="btn btn-primary">Group E</button>
+                <button id="groupf" class="btn btn-info">Group F</button>
+                <button id="groupg" class="btn btn-primary">Group G</button>
+                <button id="grouph" class="btn btn-info">Group H</button>
             </div>
-            <div class="groupButtonsB">  
-                <button id="groupe">Group E</button>
-                <button id="groupf">Group F</button>
-                <button id="groupg">Group G</button>
-                <button id="grouph">Group H</button>
-            </div>
-            <div class="laterButtons">  
-                <button id="knock">Knockout</button>
-                <button id="quarterF">Quarterfinal</button>
-                <button id="semiF">Semifinal</button>
-                <button id="finale">Final</button>
-                <button id="refresh">Try again!</button>
+        </div>    
+        <div class="row">
+            <div class="btn-group">  
+                <button id="knock" class="btn btn-primary">Knockout</button>
+                <button id="quarterF" class="btn btn-success">Quarterfinal</button>
+                <button id="semiF" class="btn btn-warning">Semifinal</button>
+                <button id="finale" class="btn btn-danger">Final</button>
+                <button id="refresh" class="btn btn-info">Try again!</button>
             </div>
         </div>
         
@@ -75,7 +76,7 @@
         <p id="Hl0"></p>
         <p id="Hl1"></p>
 
-        <table id="myTable">
+        <table id="myTable" class="table table-striped">
             <tr>
                 <td id="Tn"></td>
                 <td id="Tp"></td>
@@ -109,8 +110,10 @@
         </table>
       
         <p id="instr">Instructions:<br><br>Start by clicking group buttons in whichever order you want, each will simulate that group´s matches and write out resulting table. Tables are sorted by points, goal difference, goals scored and if teams have all of those stats tied result from match between them is the deciding factor.<br><br>When you are done with groups, button for next phase will appear and so on, until you have your simulated World Cup 2018 winner and "Try again" button appears, which resets this whole thing and you can start again.<br><br>Score is simulated with team power taken into account, which is it´s FIFA ranking somewhat modified by Russia being a host and my knowledge of football. A stronger team has better chance of winning, but, like in real world, sometimes surprises can happen!<br><br>If match ends in draw in later stages, one of the teams will win either in extra time or on penalties.<br><br>In the end, besides the winner, particularly exciting matches will be mentioned if those happened(read: many goals, not completely one-sided).<br><br>Enjoy!   </p>
-     
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script> 
+    
+        <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
    
 
      
