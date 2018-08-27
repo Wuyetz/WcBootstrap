@@ -1,4 +1,4 @@
-# Wuyetz.github.io
+# Wuyetz.github.io/WcBootstrap/
 World Cup 2018 simulator 
 
 I made this in javascript with jquery, html, css and bootstrap. 
