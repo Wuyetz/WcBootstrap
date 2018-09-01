@@ -756,8 +756,8 @@ window.onload = function() {
                 continue;
             }
             str += quarter[qe].name + ", ";
-            $("#W4").html(str);
         };
+        $("#W4").html(str);
         $("#W1").html("");
         $("#W2").html("");
         $("#Sk0").html("");
