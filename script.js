@@ -409,7 +409,7 @@ window.onload = function() {
         $("#S2").html(result(group[0], group[2], 2, group));
         $("#S3").html(result(group[1], group[3], 3, group));
         $("#S4").html(result(group[0], group[3], 4, group));
-        $("#S5").html(result(group[1], group[2], 5, group));
+        $("#S5").html(result(group[1], group[2], 5, group)+"<br>"+"<br>");
         // hides "instr" if it´s not hidden already
         if (isInstrVisible === true) {
             $("#instr").hide()
