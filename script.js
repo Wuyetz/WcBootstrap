@@ -514,7 +514,7 @@ window.onload = function() {
 
     grouph.onclick = function() {
         $("#grouph").toggle(300);
-        $("#W0").html("<br>" + "Welcome to group B!" + "<br>");
+        $("#W0").html("<br>" + "Welcome to group H!" + "<br>");
         groupResults(groupH);
         progressed[14] = groupH[0];
         progressed[15] = groupH[1];
