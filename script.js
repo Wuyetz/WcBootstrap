@@ -112,7 +112,7 @@ window.onload = function() {
 
 
     // group matches results function
-    function result(x, y, match, group, gx = 0, gy = 0) {
+    function result(x, y, match, group, sr, gx = 0, gy = 0) {
         /* gives us random number of scored goals for both teams, taking teams powers relative to each other into account, first goal the easiest and consecutive ones harder and harder to score because of "coeficients" array being used
          */
         for (i = 0; i < coeficients.length; i++) {
@@ -135,26 +135,26 @@ window.onload = function() {
         var outcome;
         if (gx === gy) {
             if ((gx + gy) === 0) {
-                outcome = drawBoring[Math.floor(Math.random() * drawBoring.length)]
+                outcome = drawBoring[Math.floor(Math.random() * drawBoring.length)];
             } else if ((gx + gy) === 2) {
-                outcome = drawNormal[Math.floor(Math.random() * drawNormal.length)]
+                outcome = drawNormal[Math.floor(Math.random() * drawNormal.length)];
             } else {
-                outcome = drawHighscore[Math.floor(Math.random() * drawHighscore.length)]
+                outcome = drawHighscore[Math.floor(Math.random() * drawHighscore.length)];
             }
         } else {
             if ((((x.power - y.power) > 10) && (gy > gx)) || ((gx > gy) && ((y.power - x.power) > 10))) {
-                outcome = winSurprise[Math.floor(Math.random() * winSurprise.length)]
+                outcome = winSurprise[Math.floor(Math.random() * winSurprise.length)];
             } else {
                 if (((gx - gy) > 3) || (3 < (gy - gx))) {
-                    outcome = winEasy[Math.floor(Math.random() * winEasy.length)]
+                    outcome = winEasy[Math.floor(Math.random() * winEasy.length)];
                 } else {
                     if (((gx + gy) > 3) && (((gx - gy) < 3) || ((gy - gx) < 3))) {
-                        outcome = winHighscore[Math.floor(Math.random() * winHighscore.length)]
+                        outcome = winHighscore[Math.floor(Math.random() * winHighscore.length)];
                     } else {
                         if (((gx - gy) === 1) || (1 === (gy - gx))) {
-                            outcome = winHard[Math.floor(Math.random() * winHard.length)]
+                            outcome = winHard[Math.floor(Math.random() * winHard.length)];
                         } else {
-                            outcome = winNormal[Math.floor(Math.random() * winNormal.length)]
+                            outcome = winNormal[Math.floor(Math.random() * winNormal.length)];
                         }
                     }
                 }
@@ -187,7 +187,8 @@ window.onload = function() {
             if (match === 5) {
                 group[1].inter += "c"
             }
-            output = x.name + outcome + y.name + " " + gx + " - " + gy + "!";
+            output = "<br>"+x.name + outcome + y.name;
+            $(sr).text(gx+" - "+gy);
             return output;
         } else if (gx < gy) {
             y.points += 3;
@@ -213,7 +214,8 @@ window.onload = function() {
             if (match === 5) {
                 group[2].inter += "b"
             }
-            output = y.name + outcome + x.name + " " + gy + " - " + gx + "!";
+            output = "<br>"+y.name + outcome + x.name;
+            $(sr).text(gy+" - "+gx);
             return output;
         } else {
             x.points += 1;
@@ -222,7 +224,8 @@ window.onload = function() {
             y.scored += gy;
             x.conceded += gy;
             y.conceded += gx;
-            output = x.name + " and " + y.name + outcome + gx + " - " + gy + ".";
+            output = "<br>"+x.name + " and " + y.name + outcome;
+            $(sr).text(gx+" - "+gy);
             return output;
         }
     }
@@ -404,12 +407,12 @@ window.onload = function() {
     function groupResults(group) {
         // shows "myTable", hides this group´s button
         $("#myTable").show();
-        $("#S0").html(result(group[0], group[1], 0, group));
-        $("#S1").html(result(group[2], group[3], 1, group));
-        $("#S2").html(result(group[0], group[2], 2, group));
-        $("#S3").html(result(group[1], group[3], 3, group));
-        $("#S4").html(result(group[0], group[3], 4, group));
-        $("#S5").html(result(group[1], group[2], 5, group)+"<br>"+"<br>");
+        $("#S0").html(result(group[0], group[1], 0, group,"#S0r"));
+        $("#S1").html(result(group[2], group[3], 1, group,"#S1r"));
+        $("#S2").html(result(group[0], group[2], 2, group,"#S2r"));
+        $("#S3").html(result(group[1], group[3], 3, group,"#S3r"));
+        $("#S4").html(result(group[0], group[3], 4, group,"#S4r"));
+        $("#S5").html(result(group[1], group[2], 5, group,"#S5r"));
         // hides "instr" if it´s not hidden already
         if (isInstrVisible === true) {
             $("#instr").hide()
@@ -639,6 +642,12 @@ window.onload = function() {
         $("#S3").html("");
         $("#S4").html("");
         $("#S5").html("");
+        $("#S0r").html("");
+        $("#S1r").html("");
+        $("#S2r").html("");
+        $("#S3r").html("");
+        $("#S4r").html("");
+        $("#S5r").html("");
         $("#myTable").toggle()
         $("#Sk0").html(knockout(progressed[4], progressed[7], 0, 0));
         $("#Sk1").html(knockout(progressed[0], progressed[3], 0, 0));
@@ -1132,3 +1141,4 @@ window.onload = function() {
     }
 
 }
+
