@@ -187,8 +187,8 @@ window.onload = function() {
             if (match === 5) {
                 group[1].inter += "c"
             }
-            output = "<br>"+x.name + outcome + y.name;
-            $(sr).text(gx+" - "+gy);
+            output = "<br>" + x.name + outcome + y.name;
+            $(sr).text(gx + " - " + gy);
             return output;
         } else if (gx < gy) {
             y.points += 3;
@@ -214,8 +214,8 @@ window.onload = function() {
             if (match === 5) {
                 group[2].inter += "b"
             }
-            output = "<br>"+y.name + outcome + x.name;
-            $(sr).text(gy+" - "+gx);
+            output = "<br>" + y.name + outcome + x.name;
+            $(sr).text(gy + " - " + gx);
             return output;
         } else {
             x.points += 1;
@@ -224,8 +224,8 @@ window.onload = function() {
             y.scored += gy;
             x.conceded += gy;
             y.conceded += gx;
-            output = "<br>"+x.name + " and " + y.name + outcome;
-            $(sr).text(gx+" - "+gy);
+            output = "<br>" + x.name + " and " + y.name + outcome;
+            $(sr).text(gx + " - " + gy);
             return output;
         }
     }
@@ -407,12 +407,12 @@ window.onload = function() {
     function groupResults(group) {
         // shows "myTable", hides this group´s button
         $("#myTable").show();
-        $("#S0").html(result(group[0], group[1], 0, group,"#S0r"));
-        $("#S1").html(result(group[2], group[3], 1, group,"#S1r"));
-        $("#S2").html(result(group[0], group[2], 2, group,"#S2r"));
-        $("#S3").html(result(group[1], group[3], 3, group,"#S3r"));
-        $("#S4").html(result(group[0], group[3], 4, group,"#S4r"));
-        $("#S5").html(result(group[1], group[2], 5, group,"#S5r"));
+        $("#S0").html(result(group[0], group[1], 0, group, "#S0r"));
+        $("#S1").html(result(group[2], group[3], 1, group, "#S1r"));
+        $("#S2").html(result(group[0], group[2], 2, group, "#S2r"));
+        $("#S3").html(result(group[1], group[3], 3, group, "#S3r"));
+        $("#S4").html(result(group[0], group[3], 4, group, "#S4r"));
+        $("#S5").html(result(group[1], group[2], 5, group, "#S5r"));
         // hides "instr" if it´s not hidden already
         if (isInstrVisible === true) {
             $("#instr").hide()
@@ -573,12 +573,12 @@ window.onload = function() {
         if (gz > gt) {
             output = "<br>" + z.name + outcome + t.name;
             quarter.push(z);
-            $(sr).text(gz+" - "+gt);
+            $(sr).text(gz + " - " + gt);
             return output;
         } else if (gz < gt) {
             output = "<br>" + t.name + outcome + z.name;
             quarter.push(t);
-            $(sr).text(gt+" - "+gz);
+            $(sr).text(gt + " - " + gz);
             return output;
         } else {
             var hg;
@@ -600,26 +600,26 @@ window.onload = function() {
             if (pen === 0) {
                 quarter.push(z);
                 output = "<br>" + z.name + " and " + t.name + outcome;
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 $(sp).text(" in regular time. " + z.name + " advances to next round after penalty shootout!");
                 return output;
             } else if (pen === 1) {
                 quarter.push(t);
                 output = "<br>" + z.name + " and " + t.name + outcome;
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 $(sp).text(" in regular time. " + t.name + " advances to next round after penalty shootout!");
                 return output;
             } else if (pen === 2) {
                 quarter.push(z);
                 output = "<br>" + z.name + " and " + t.name + outcome;
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 $(sp).text(" in regular time. " + z.name + " advances to next round after an " + extraTime[et] + " extra time!");
                 return output;
             } else {
                 quarter.push(t);
                 output = "<br>" + z.name + " and " + t.name + outcome;
-                $(sr).text(gz+" - "+gt);
-                $(sp).text(" in regular time. "+ t.name + " advances to next round after an " + extraTime[et] + " extra time!");
+                $(sr).text(gz + " - " + gt);
+                $(sp).text(" in regular time. " + t.name + " advances to next round after an " + extraTime[et] + " extra time!");
                 return output;
             }
         }
@@ -647,14 +647,14 @@ window.onload = function() {
         $("#W2").html(str);
         $("#W0").html("");
         $("#myTable").toggle()
-        $("#S0").html(knockout(progressed[4], progressed[7],"#S0r","#S0p", 0, 0));
-        $("#S1").html(knockout(progressed[0], progressed[3],"#S1r","#S1p", 0, 0));
-        $("#S2").html(knockout(progressed[2], progressed[1],"#S2r","#S2p", 0, 0));
-        $("#S3").html(knockout(progressed[6], progressed[5],"#S3r","#S3p", 0, 0));
-        $("#S4").html(knockout(progressed[8], progressed[11],"#S4r","#S4p", 0, 0));
-        $("#S5").html(knockout(progressed[12], progressed[15],"#S5r","#S5p", 0, 0));
-        $("#S6").html(knockout(progressed[10], progressed[9],"#S6r","#S6p", 0, 0));
-        $("#S7").html(knockout(progressed[14], progressed[13],"#S7r","#S7p", 0, 0));
+        $("#S0").html(knockout(progressed[4], progressed[7], "#S0r", "#S0p", 0, 0));
+        $("#S1").html(knockout(progressed[0], progressed[3], "#S1r", "#S1p", 0, 0));
+        $("#S2").html(knockout(progressed[2], progressed[1], "#S2r", "#S2p", 0, 0));
+        $("#S3").html(knockout(progressed[6], progressed[5], "#S3r", "#S3p", 0, 0));
+        $("#S4").html(knockout(progressed[8], progressed[11], "#S4r", "#S4p", 0, 0));
+        $("#S5").html(knockout(progressed[12], progressed[15], "#S5r", "#S5p", 0, 0));
+        $("#S6").html(knockout(progressed[10], progressed[9], "#S6r", "#S6p", 0, 0));
+        $("#S7").html(knockout(progressed[14], progressed[13], "#S7r", "#S7p", 0, 0));
         $("#knock").toggle(300);
         $("#quarterF").toggle();
     }
@@ -707,13 +707,13 @@ window.onload = function() {
         if (gz > gt) {
             output = "<br>" + z.name + outcome + t.name;
             semi.push(z);
-            $(sr).text(gz+" - "+gt);
+            $(sr).text(gz + " - " + gt);
             $(sp).text(" and goes to semifinal!");
             return output;
         } else if (gz < gt) {
             output = "<br>" + t.name + outcome + z.name;
             semi.push(t);
-            $(sr).text(gt+" - "+gz);
+            $(sr).text(gt + " - " + gz);
             $(sp).text(" and goes to semifinal!");
             return output;
         } else {
@@ -737,25 +737,25 @@ window.onload = function() {
                 semi.push(z);
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + z.name + " advances to semifinal after penalty shootout!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             } else if (pen === 1) {
                 semi.push(t);
                 output = "<br>" + z.name + " and " + t.name + outcome;
-                $(sp).text(" in regular time. "+ t.name + " advances to semifinal after penalty shootout!");
-                $(sr).text(gz+" - "+gt);
+                $(sp).text(" in regular time. " + t.name + " advances to semifinal after penalty shootout!");
+                $(sr).text(gz + " - " + gt);
                 return output;
             } else if (pen === 2) {
                 semi.push(z);
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + z.name + " advances to semifinal after an " + extraTime[et] + " extra time!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             } else {
                 semi.push(t);
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + t.name + " advances to semifinal after an " + extraTime[et] + " extra time!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             }
         }
@@ -779,10 +779,10 @@ window.onload = function() {
         $("#W4").html(str);
         $("#W1").html("");
         $("#W2").html("");
-        $("#S0").html(quarterFinal(quarter[0], quarter[1],"#S0r","#S0p", 0, 0));
-        $("#S1").html(quarterFinal(quarter[4], quarter[5],"#S1r","#S1p", 0, 0));
-        $("#S2").html(quarterFinal(quarter[6], quarter[7],"#S2r","#S2p", 0, 0));
-        $("#S3").html(quarterFinal(quarter[2], quarter[3],"#S3r","#S3p", 0, 0));
+        $("#S0").html(quarterFinal(quarter[0], quarter[1], "#S0r", "#S0p", 0, 0));
+        $("#S1").html(quarterFinal(quarter[4], quarter[5], "#S1r", "#S1p", 0, 0));
+        $("#S2").html(quarterFinal(quarter[6], quarter[7], "#S2r", "#S2p", 0, 0));
+        $("#S3").html(quarterFinal(quarter[2], quarter[3], "#S3r", "#S3p", 0, 0));
         $("#S4").html("");
         $("#S5").html("");
         $("#S6").html("");
@@ -847,14 +847,14 @@ window.onload = function() {
             output = "<br>" + z.name + outcome + t.name;
             final.push(z);
             third.push(t);
-            $(sr).text(gz+" - "+gt);
+            $(sr).text(gz + " - " + gt);
             $(sp).text(" and goes to final!");
             return output;
         } else if (gz < gt) {
             output = "<br>" + t.name + outcome + z.name;
             final.push(t);
             third.push(z);
-            $(sr).text(gt+" - "+gz);
+            $(sr).text(gt + " - " + gz);
             $(sp).text(" and goes to final!");
             return output;
         } else {
@@ -879,28 +879,28 @@ window.onload = function() {
                 third.push(t);
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + z.name + " advances to final after penalty shootout!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             } else if (pen === 1) {
                 final.push(t);
                 third.push(z);
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + t.name + " advances to final after penalty shootout!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             } else if (pen === 2) {
                 final.push(z);
                 third.push(t);
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + z.name + " advances to final after an " + extraTime[et] + " extra time!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             } else {
                 final.push(t);
                 third.push(z);
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + t.name + " advances to final after an " + extraTime[et] + " extra time!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             }
         }
@@ -910,8 +910,8 @@ window.onload = function() {
     semiF.onclick = function() {
         $("#W5").html("Welcome to semifinal! Last four standing are: " + "<br>");
         $("#W6").html(semi[0].name + " against " + semi[1].name + " and " + semi[2].name + " against " + semi[3].name + "!" + "<br>");
-        $("#S0").html(semiFinal(semi[0], semi[1],"#S0r","#S0p", 0, 0));
-        $("#S1").html(semiFinal(semi[2], semi[3],"#S1r","#S1p", 0, 0));
+        $("#S0").html(semiFinal(semi[0], semi[1], "#S0r", "#S0p", 0, 0));
+        $("#S1").html(semiFinal(semi[2], semi[3], "#S1r", "#S1p", 0, 0));
         $("#W3").html("");
         $("#W4").html("");
         $("#S2").html("");
@@ -970,12 +970,12 @@ window.onload = function() {
 
         if (gz > gt) {
             output = "<br>" + z.name + outcome + t.name;
-            $(sr).text(gz+" - "+gt);
+            $(sr).text(gz + " - " + gt);
             $(sp).text(" and finishes third in the World Cup!");
             return output;
         } else if (gz < gt) {
             output = "<br>" + t.name + outcome + z.name;
-            $(sr).text(gt+" - "+gz);
+            $(sr).text(gt + " - " + gz);
             $(sp).text(" and finishes third in the World Cup!");
             return output;
         } else {
@@ -998,22 +998,22 @@ window.onload = function() {
             if (pen === 0) {
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + z.name + " places third in the World Cup after penalty shootout!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             } else if (pen === 1) {
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + t.name + " places third in the World Cup after penalty shootout!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             } else if (pen === 2) {
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + z.name + " places third in the World Cup after an " + extraTime[et] + " extra time!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             } else {
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + t.name + " places third in the World Cup after an " + extraTime[et] + " extra time!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             }
         }
@@ -1066,12 +1066,12 @@ window.onload = function() {
 
         if (gz > gt) {
             output = "<br>" + z.name + outcome + t.name;
-            $(sr).text(gz+" - "+gt);
+            $(sr).text(gz + " - " + gt);
             $(sp).text(" and wins the World Cup!!!");
             return output;
         } else if (gz < gt) {
             output = "<br>" + t.name + outcome + z.name;
-            $(sr).text(gt+" - "+gz);
+            $(sr).text(gt + " - " + gz);
             $(sp).text(" and wins the World Cup!!!");
             return output;
         } else {
@@ -1094,22 +1094,22 @@ window.onload = function() {
             if (pen === 0) {
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + z.name + " wins the World Cup after penalty shootout!!!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             } else if (pen === 1) {
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + t.name + " wins the World Cup after penalty shootout!!!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             } else if (pen === 2) {
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + z.name + " wins the World Cup after an " + extraTime[et] + " extra time!!!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             } else {
                 output = "<br>" + z.name + " and " + t.name + outcome;
                 $(sp).text(" in regular time. " + t.name + " wins the World Cup after an " + extraTime[et] + " extra time!!!");
-                $(sr).text(gz+" - "+gt);
+                $(sr).text(gz + " - " + gt);
                 return output;
             }
         }
@@ -1119,8 +1119,8 @@ window.onload = function() {
     finale.onclick = function() {
         $("#W7").html(third[0].name + " and " + third[1].name + " will compete for third place, " + "<br>");
         $("#W8").html("and for the World Cup: " + final[0].name + " against " + final[1].name + "..." + "<br>");
-        $("#S0").html(thirdPlace(third[0], third[1],"#S0r","#S0p", 0, 0));
-        $("#S1").html(worldCup(final[0], final[1],"#S1r","#S1p", 0, 0));
+        $("#S0").html(thirdPlace(third[0], third[1], "#S0r", "#S0p", 0, 0));
+        $("#S1").html(worldCup(final[0], final[1], "#S1r", "#S1p", 0, 0));
         $("#W5").html("");
         $("#W6").html("");
         $("#finale").toggle(300);
@@ -1155,7 +1155,7 @@ window.onload = function() {
         $("#Results *").html("");
         $("#Hl0").html("");
         $("#Hl1").html("");
-        
+
         progressed.length = 0;
         eliminated.length = 0;
         quarter.length = 0;
