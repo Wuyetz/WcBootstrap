@@ -1,191 +1,218 @@
 <!DOCTYPE html>
 <html>
-    
-    <head>
-        <title>World Cup simulator</title>
-         
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset=UTF-8>
-        <script src="script.js" type="text/javascript"></script>
-        <style>
-            body {
-                background: linear-gradient(
-                    to bottom,
-                    #69a066,
-                    #69a066 50%,
-                    #7eb77b 50%,
-                    #7eb77b
-                    
-                    );
-                    background-size: 100% 310px;
-            }
-            #SResults>span {
-                line-height: 8px;
-                text-shadow: 1px 1px #000000;
-            }
-            
-            td {
-                text-align: center;
-            }
-            #Tn,#Tp,#Ts,#Tc {
-                color: #400080;
-            }
-            #T0n,#T1n {
-                color: #ff0000;
-            }
-            #T2n,#T3n {
-                color: #0000cc;
-            }
-            p {
-                color: #ffffff;
-                text-shadow: 1px 1px #000000;
-            }
-            h3>p {
-                color: #66ffff;
-            }
-            h5>p {
-                color: #99ffff;
-            }
-            .btn-group { 
-                padding: 2px;
-            }
-            .btn {
-                text-shadow: 1px 1px #000000;
-            }
-            .btn-knockout {
-                background: #ffcc00;
-                color: #ffffff;
-            }
-            .btn-quarter {
-                background: #ff9933;
-                color: #ffffff;
-            }
-            .btn-semi {
-                background: #ff6600;
-                color: #ffffff;
-            }
-            .btn-final {
-                background: #ff3300;
-                color: #ffffff;
-            }
-        </style>
-    </head>
-   
-    <body>
-        
-        <div class="row" align="center"> 
-            <div class="btn-group">
-                <button id="groupa" class="btn btn-primary">Group A</button>
-                <button id="groupb" class="btn btn-info">Group B</button>
-                <button id="groupc" class="btn btn-primary">Group C</button>
-                <button id="groupd" class="btn btn-info">Group D</button>
-                <button id="groupe" class="btn btn-primary">Group E</button>
-                <button id="groupf" class="btn btn-info">Group F</button>
-                <button id="groupg" class="btn btn-primary">Group G</button>
-                <button id="grouph" class="btn btn-info">Group H</button>
-            </div>
-        </div>    
-        <div class="row" align="center">
-            <div class="btn-group">  
-                <button id="knock" class="btn btn-knockout">Knockout</button>
-                <button id="quarterF" class="btn btn-warning">Quarterfinal</button>
-                <button id="semiF" class="btn btn-semi">Semifinal</button>
-                <button id="finale" class="btn btn-danger">Final</button>
-                <button id="refresh" class="btn btn-info">Try again!</button>
-            </div>
-        </div>
-        
-        
-        <h3><p id="W0"></p></h3>
-        <h3><p id="W1"></p></h3>
-        <h5><p id="W2"></p></h5>
-        <h3><p id="W3"></p></h3>
-        <h5><p id="W4"></p></h5>
-        <h3><p id="W5"></p></h3>
-        <h5><p id="W6"></p></h5>
-        <h5><p id="W7"></p></h5>
-        <h3><p id="W8"></p></h3>
-         
-      
-        <div id="SResults">
-            <span id="S0" class="text-primary"></span>
-            <span id="S0r" class="text-danger"></span>
-            <span id="S1" class="text-primary"></span>
-            <span id="S1r" class="text-danger"></span>
-            <span id="S2" class="text-primary"></span>
-            <span id="S2r" class="text-danger"></span>
-            <span id="S3" class="text-primary"></span>
-            <span id="S3r" class="text-danger"></span>
-            <span id="S4" class="text-primary"></span>
-            <span id="S4r" class="text-danger"></span>
-            <span id="S5" class="text-primary"></span>
-            <span id="S5r" class="text-danger"></span>
-        </div>
-    
-        <p id="Sk0"></p>
-        <p id="Sk1"></p>
-        <p id="Sk2"></p>
-        <p id="Sk3"></p>
-        <p id="Sk4"></p>
-        <p id="Sk5"></p>
-        <p id="Sk6"></p>
-        <p id="Sk7"></p>
-      
-        <p id="Sq0"></p>
-        <p id="Sq1"></p>
-        <p id="Sq2"></p>
-        <p id="Sq3"></p>
-      
-        <p id="Ss0"></p>
-        <p id="Ss1"></p>
-      
-        <h5><p id="Sf0"></p></h5>
-        <h3><p id="Sf1"></p></h3>
-      
-      
-        <p id="Hl0"></p>
-        <p id="Hl1"></p>
 
-        <table id="myTable" class="table table-striped" align="center">
-            <tr class="active">
-                <td id="Tn"></td>
-                <td id="Tp"></td>
-                <td id="Ts"></td>
-                <td id="Tc"></td>
-            </tr>
-            <tr class="info">
-                <td id="T0n"></td>
-                <td id="T0p"></td>
-                <td id="T0s"></td>
-                <td id="T0c"></td>
-            </tr>
-            <tr class="active">
-                <td id="T1n"></td>
-                <td id="T1p"></td>
-                <td id="T1s"></td>
-                <td id="T1c"></td>
-            </tr>
-            <tr class="info">
-                <td id="T2n"></td>
-                <td id="T2p"></td>
-                <td id="T2s"></td>
-                <td id="T2c"></td>
-            </tr>
-            <tr class="active">
-                <td id="T3n"></td>
-                <td id="T3p"></td>
-                <td id="T3s"></td>
-                <td id="T3c"></td>
-            </tr>
-        </table>
-      
-        <p id="instr">Instructions:<br><br>Start by clicking group buttons in whichever order you want, each will simulate that group´s matches and write out resulting table. Tables are sorted by points, goal difference, goals scored and if teams have all of those stats tied result from match between them is the deciding factor.<br><br>When you are done with groups, button for next phase will appear and so on, until you have your simulated World Cup 2018 winner and "Try again" button appears, which resets this whole thing and you can start again.<br><br>Score is simulated with team power taken into account, which is it´s FIFA ranking somewhat modified by Russia being a host and my knowledge of football. A stronger team has better chance of winning, but, like in real world, sometimes surprises can happen!<br><br>If match ends in draw in later stages, one of the teams will win either in extra time or on penalties.<br><br>In the end, besides the winner, particularly exciting matches will be mentioned if those happened(read: many goals, not completely one-sided).<br><br>Enjoy!   </p>
-    
-        <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-   
+<head>
+    <title>World Cup simulator</title>
 
-     
-    </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset=UTF-8>
+    <script src="script.js" type="text/javascript"></script>
+    <style>
+        body {
+            background: linear-gradient(to bottom,
+                #69a066,
+                #69a066 50%,
+                #7eb77b 50%,
+                #7eb77b);
+            background-size: 100% 310px;
+        }
+
+        #Results>span,
+        #KResults>span {
+            line-height: 8px;
+            text-shadow: 1px 1px #000000;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        #Tn,
+        #Tp,
+        #Ts,
+        #Tc {
+            color: #400080;
+        }
+
+        #T0n,
+        #T1n {
+            color: #ff0000;
+        }
+
+        #T2n,
+        #T3n {
+            color: #0000cc;
+        }
+
+        p {
+            color: #ffffff;
+            text-shadow: 1px 1px #000000;
+        }
+
+        h3>p {
+            color: #66ffff;
+        }
+
+        h5>p {
+            color: #99ffff;
+        }
+
+        .btn-group {
+            padding: 2px;
+        }
+
+        .btn {
+            text-shadow: 1px 1px #000000;
+        }
+
+        .btn-knockout {
+            background: #ffcc00;
+            color: #ffffff;
+        }
+
+        .btn-quarter {
+            background: #ff9933;
+            color: #ffffff;
+        }
+
+        .btn-semi {
+            background: #ff6600;
+            color: #ffffff;
+        }
+
+        .btn-final {
+            background: #ff3300;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="row" align="center">
+        <div class="btn-group">
+            <button id="groupa" class="btn btn-primary">Group A</button>
+            <button id="groupb" class="btn btn-info">Group B</button>
+            <button id="groupc" class="btn btn-primary">Group C</button>
+            <button id="groupd" class="btn btn-info">Group D</button>
+            <button id="groupe" class="btn btn-primary">Group E</button>
+            <button id="groupf" class="btn btn-info">Group F</button>
+            <button id="groupg" class="btn btn-primary">Group G</button>
+            <button id="grouph" class="btn btn-info">Group H</button>
+        </div>
+    </div>
+    <div class="row" align="center">
+        <div class="btn-group">
+            <button id="knock" class="btn btn-knockout">Knockout</button>
+            <button id="quarterF" class="btn btn-warning">Quarterfinal</button>
+            <button id="semiF" class="btn btn-semi">Semifinal</button>
+            <button id="finale" class="btn btn-danger">Final</button>
+            <button id="refresh" class="btn btn-info">Try again!</button>
+        </div>
+    </div>
+
+
+    <h3>
+        <p id="W0"></p>
+    </h3>
+    <h3>
+        <p id="W1"></p>
+    </h3>
+    <h5>
+        <p id="W2"></p>
+    </h5>
+    <h3>
+        <p id="W3"></p>
+    </h3>
+    <h5>
+        <p id="W4"></p>
+    </h5>
+    <h3>
+        <p id="W5"></p>
+    </h3>
+    <h5>
+        <p id="W6"></p>
+    </h5>
+    <h5>
+        <p id="W7"></p>
+    </h5>
+    <h3>
+        <p id="W8"></p>
+    </h3>
+
+
+    <div id="Results">
+        <span id="S0" class="text-primary"></span>
+        <span id="S0r" class="text-danger"></span>
+        <span id="S0p" class="text-primary"></span>
+        <span id="S1" class="text-primary"></span>
+        <span id="S1r" class="text-danger"></span>
+        <span id="S1p" class="text-primary"></span>
+        <span id="S2" class="text-primary"></span>
+        <span id="S2r" class="text-danger"></span>
+        <span id="S2p" class="text-primary"></span>
+        <span id="S3" class="text-primary"></span>
+        <span id="S3r" class="text-danger"></span>
+        <span id="S3p" class="text-primary"></span>
+        <span id="S4" class="text-primary"></span>
+        <span id="S4r" class="text-danger"></span>
+        <span id="S4p" class="text-primary"></span>
+        <span id="S5" class="text-primary"></span>
+        <span id="S5r" class="text-danger"></span>
+        <span id="S5p" class="text-primary"></span>
+        <span id="S6" class="text-primary"></span>
+        <span id="S6r" class="text-danger"></span>
+        <span id="S6p" class="text-primary"></span>
+        <span id="S7" class="text-primary"></span>
+        <span id="S7r" class="text-danger"></span>
+        <span id="S7p" class="text-primary"></span>
+    </div>
+
+
+    <p id="Hl0"></p>
+    <p id="Hl1"></p>
+
+    <table id="myTable" class="table table-striped" align="center">
+        <tr class="active">
+            <td id="Tn"></td>
+            <td id="Tp"></td>
+            <td id="Ts"></td>
+            <td id="Tc"></td>
+        </tr>
+        <tr class="info">
+            <td id="T0n"></td>
+            <td id="T0p"></td>
+            <td id="T0s"></td>
+            <td id="T0c"></td>
+        </tr>
+        <tr class="active">
+            <td id="T1n"></td>
+            <td id="T1p"></td>
+            <td id="T1s"></td>
+            <td id="T1c"></td>
+        </tr>
+        <tr class="info">
+            <td id="T2n"></td>
+            <td id="T2p"></td>
+            <td id="T2s"></td>
+            <td id="T2c"></td>
+        </tr>
+        <tr class="active">
+            <td id="T3n"></td>
+            <td id="T3p"></td>
+            <td id="T3s"></td>
+            <td id="T3c"></td>
+        </tr>
+    </table>
+
+    <p id="instr">Instructions:<br><br>Start by clicking group buttons in whichever order you want, each will simulate that group´s matches and write out resulting table. Tables are sorted by points, goal difference, goals scored and if teams have all of those stats tied result from match between them is the deciding factor.<br><br>When you are done with groups, button for next phase will appear and so on, until you have your simulated World Cup 2018 winner and "Try again" button appears, which resets this whole thing and you can start again.<br><br>Score is simulated with team power taken into account, which is it´s FIFA ranking somewhat modified by Russia being a host and my knowledge of football. A stronger team has better chance of winning, but, like in real world, sometimes surprises can happen!<br><br>If match ends in draw in later stages, one of the teams will win either in extra time or on penalties.<br><br>In the end, besides the winner, particularly exciting matches will be mentioned if those happened(read: many goals, not completely one-sided).<br><br>Enjoy! </p>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+</body>
+
 </html>
